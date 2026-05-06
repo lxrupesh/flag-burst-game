@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flag Burst Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>🌍 Flag Burst Game</h2>
+
+  <div id="settings">
+    <h3>Settings</h3>
+    <label><input type="checkbox" value="India" checked> India</label>
+    <label><input type="checkbox" value="USA" checked> USA</label>
+    <label><input type="checkbox" value="Japan"> Japan</label>
+    <label><input type="checkbox" value="Germany"> Germany</label>
+    <br><br>
+    Speed: <input type="range" id="speedControl" min="1" max="5" value="2">
+  </div>
+
+  <canvas id="gameCanvas" width="400" height="600"></canvas>
+  <input id="input" placeholder="Type country name..." />
+
+  <script src="script.js"></script>
+</body>
+</html>
