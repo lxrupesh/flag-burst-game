@@ -14,9 +14,15 @@ canvas {
 #input {
   width: 80%;
   font-size: 20px;
-  margin-top: 10px;
+  margin: 10px auto;
+  display: block;
 }
 
 #settings {
   margin: 10px;
+}
+
+#countrySelect {
+  width: 200px;
+  font-size: 16px;
 }
