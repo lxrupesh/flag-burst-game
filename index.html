@@ -5,32 +5,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>🌍 Flag Burst Game</h2>
+  <div id="container">
+    <!-- Left Pane -->
+    <div id="settings">
+      <h3>Settings</h3>
+      <label for="countrySelect">Choose countries:</label><br>
+      <select id="countrySelect" multiple size="15"></select>
+      <br><br>
+      Speed: <input type="range" id="speedControl" min="1" max="5" value="2"><br><br>
+      Time Limit (minutes): <input type="number" id="timeLimit" min="1" max="10" value="2"><br><br>
+      <button id="startBtn">Start Game</button>
+    </div>
 
-  <div id="settings">
-    <h3>Settings</h3>
-    <label for="countrySelect">Choose countries to include:</label><br>
-    <select id="countrySelect" multiple size="6">
-      <option value="India" selected>India</option>
-      <option value="USA" selected>USA</option>
-      <option value="Japan">Japan</option>
-      <option value="Germany">Germany</option>
-      <option value="France">France</option>
-      <option value="Brazil">Brazil</option>
-    </select>
-    <br><br>
-    Speed: <input type="range" id="speedControl" min="1" max="5" value="2"><br><br>
-    Time Limit (minutes): <input type="number" id="timeLimit" min="1" max="10" value="2">
-    <br><br>
-    <button id="startBtn">Start Game</button>
+    <!-- Right Pane -->
+    <div id="gameArea">
+      <input id="input" placeholder="Type country name..." />
+      <canvas id="gameCanvas" width="600" height="600"></canvas>
+      <h3 id="timerDisplay">Time Left: 0:00</h3>
+      <h3 id="scoreDisplay">Score: 0</h3>
+    </div>
   </div>
-
-  <!-- Textbox above canvas -->
-  <input id="input" placeholder="Type country name..." />
-
-  <canvas id="gameCanvas" width="400" height="600"></canvas>
-  <h3 id="timerDisplay">Time Left: 0:00</h3>
-  <h3 id="scoreDisplay">Score: 0</h3>
 
   <script src="script.js"></script>
 </body>
