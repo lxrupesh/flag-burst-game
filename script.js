@@ -6,35 +6,35 @@ let score = 0;
 let gameInterval, spawnInterval, timerInterval;
 let timeRemaining = 0;
 
-// Example: populate dropdown with all countries
-const countries = [
-  {name:"India", code:"in"},
-  {name:"USA", code:"us"},
-  {name:"Japan", code:"jp"},
-  {name:"Germany", code:"de"},
-  {name:"France", code:"fr"},
-  {name:"Brazil", code:"br"},
-  // ... extend to all 195 countries
-];
+let countries = []; // will be filled dynamically
 
-// Populate dropdown
-const select = document.getElementById("countrySelect");
-countries.forEach(c => {
-  let opt = document.createElement("option");
-  opt.value = c.name;
-  opt.textContent = c.name;
-  select.appendChild(opt);
-});
+// Load all countries dynamically from FlagCDN
+async function loadCountries() {
+  const response = await fetch("https://flagcdn.com/en/codes.json");
+  const codes = await response.json();
+
+  const select = document.getElementById("countrySelect");
+  Object.entries(codes).forEach(([code, name]) => {
+    let opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    select.appendChild(opt);
+    countries.push({name, code});
+  });
+}
+loadCountries();
 
 function spawnBalloons() {
-  const selected = Array.from(select.selectedOptions).map(opt => opt.value);
+  const selected = Array.from(document.getElementById("countrySelect").selectedOptions)
+                        .map(opt => opt.value);
   if (selected.length === 0) return;
 
   let count = Math.floor(Math.random() * 5) + 1; // 1–5 balloons
   for (let i=0; i<count; i++) {
     const country = selected[Math.floor(Math.random() * selected.length)];
+    const code = countries.find(c => c.name === country).code;
     balloons.push({
-      img: `https://flagcdn.com/w320/${countries.find(c=>c.name===country).code}.png`,
+      img: `https://flagcdn.com/w320/${code}.png`,
       country: country,
       x: 50 + i*100, // spaced apart horizontally
       y: 600
