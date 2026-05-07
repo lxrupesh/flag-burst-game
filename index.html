@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Flag Burst Game</title>
+  <title>🌍 Flag Burst Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,12 +14,20 @@
       <br><br>
       Speed: <input type="range" id="speedControl" min="1" max="5" value="2"><br><br>
       Time Limit (minutes): <input type="number" id="timeLimit" min="1" max="10" value="2"><br><br>
+      <label>
+        <input type="checkbox" id="learningMode"> Enable Learning Mode
+      </label><br><br>
       <button id="startBtn">Start Game</button>
     </div>
 
     <!-- Right Pane -->
     <div id="gameArea">
+      <h3 id="instruction">
+        Type the country names in the box below to make the flags disappear and score maximum points. 
+        (Case insensitive)
+      </h3>
       <input id="input" placeholder="Type country name..." />
+      <button id="toggleLearningBtn">Enable Learning Mode</button>
       <canvas id="gameCanvas" width="600" height="600"></canvas>
       <h3 id="timerDisplay">Time Left: 0:00</h3>
       <h3 id="scoreDisplay">Score: 0</h3>
