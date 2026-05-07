@@ -36,11 +36,12 @@ function spawnBalloons() {
   for (let i=0; i<count; i++) {
     const country = selected[Math.floor(Math.random() * selected.length)];
     const code = countries.find(c => c.name === country).code;
+
     balloons.push({
       img: `https://flagcdn.com/w320/${code}.png`,
       country: country,
-      x: 50 + i*100, // spaced apart horizontally
-      y: 600
+      x: 50 + i*100,   // horizontal spacing (columns)
+      y: 600 + i*50    // vertical spacing (rows)
     });
   }
 }
